@@ -1,3 +1,9 @@
+import React from 'react'
+
 export default function Primeiro(){
-    return 'Primeiro Componente'
+    return (
+        <div>
+            <h1>Primeiro componente</h1>
+        </div>
+    )
 }
