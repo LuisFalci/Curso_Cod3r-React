@@ -8,10 +8,9 @@ export default function ComParametro(props) {
   const notaInt = Math.ceil(props.nota);
   return (
     <div>
-      <p>{props.cor}</p>
-      <p>{props.texto}</p>
-      <p>{notaInt}</p>
-      <p>Status: {status}</p>
+      <h2>Aluno: {props.aluno}</h2>
+      <h2>Nota: {notaInt}</h2>
+      <h2>Status: {status}</h2>
     </div>
   );
 }
