@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css"; //importando css
 import Familia from "./components/basicos/Familia";
+import FamiliaMembro from "./components/basicos/FamiliaMembro";
 import Primeiro from "./components/basicos/Primeiro";
 import ComParametro from "./components/basicos/ComParametro";
 import Aleatorio from "./components/basicos/Aleatorio";
@@ -15,7 +16,12 @@ export default function App(props) {
       <h1>Fundamentos React</h1>
       <div className="Cards">
         <Card titulo="#04 - Componente com filhos" color="yellow">
-          <Familia sobrenome="Lira"></Familia>
+          {/* Familia é Pai de FamiliaMembro */}
+          <Familia sobrenome="Falci">
+            <FamiliaMembro nome="Pedro" />
+            <FamiliaMembro nome="Luis" />
+            <FamiliaMembro nome="Igor" />
+          </Familia>
         </Card>
 
         <Card titulo="#03 - Desafio Aleatório" color="green">

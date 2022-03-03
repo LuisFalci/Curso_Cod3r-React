@@ -1,14 +1,16 @@
-import React from "react";
+import React, { cloneElement } from "react";
 import FamiliaMembro from "./FamiliaMembro";
 
 export default function Familia(props) {
   return (
     <div>
-        {/* Pega apena o atributo do pai */}
-        <FamiliaMembro nome="Pedro" sobrenome={props.sobrenome}/>
-        {/* o "..." pega todo que é passado pelo pai (objeto) */}
-        <FamiliaMembro nome="Luis" {...props}/>
-        <FamiliaMembro nome="Igor" sobrenome="Falci"/>
+      {/* .map mapeia todo o objeto de filho. O parâmetro child é o objeto a ser mapeado e i o índice (uma key para rastrear)  */}
+      {props.children.map((child, i)=>{
+        // cloneElement clona o elemento especificado
+        return cloneElement(child, {...props, key: i});
+        // outra nomenclatura:
+        // return React.cloneElement(child, {...props, key: i});
+      })}
     </div>
   );
 }
