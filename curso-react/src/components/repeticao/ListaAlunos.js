@@ -8,7 +8,7 @@ export default function ListaAlunos(props){
         return(
             // usamos o id como chave para facilitar a localização do código para o React
             <li key={aluno.id}>
-                {aluno.id} {aluno.nome} -> {aluno.nota}
+                {aluno.id} {aluno.nome} - {aluno.nota}
             </li>
         )
     })
