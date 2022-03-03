@@ -6,6 +6,7 @@ import Primeiro from "./components/basicos/Primeiro";
 import ComParametro from "./components/basicos/ComParametro";
 import Aleatorio from "./components/basicos/Aleatorio";
 import Card from "./components/layout/Card";
+import ListaAlunos from "./components/repeticao/ListaAlunos";
 import "./App.css";
 
 //export default (props) => {
@@ -15,6 +16,10 @@ export default function App(props) {
     <div className="App">
       <h1>Fundamentos React</h1>
       <div className="Cards">
+        <Card titulo="#05 - Repetição" color="red">
+          <ListaAlunos></ListaAlunos>
+        </Card>
+
         <Card titulo="#04 - Componente com filhos" color="yellow">
           {/* Familia é Pai de FamiliaMembro */}
           <Familia sobrenome="Falci">
