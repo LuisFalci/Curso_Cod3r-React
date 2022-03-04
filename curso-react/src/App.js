@@ -9,6 +9,9 @@ import Card from "./components/layout/Card";
 import ListaAlunos from "./components/repeticao/ListaAlunos";
 import TabelaProdutos from "./components/repeticao/TabelaProdutos";
 import "./App.css";
+import ParOuImpar from "./components/condicional/ParOuImpar";
+import UsuarioInfo from "./components/condicional/UsuarioInfo";
+
 
 //export default (props) => {
 
@@ -17,6 +20,11 @@ export default function App(props) {
     <div className="App">
       <h1>Fundamentos React</h1>
       <div className="Cards">
+
+        <Card titulo="#07 - Renderização Condicional" color="green">
+          <ParOuImpar numero={22}></ParOuImpar>
+          <UsuarioInfo usuario={{nome: "Luis"}}></UsuarioInfo>
+        </Card>
         <Card titulo="#06 - Desafio Repetição" color="red">
           <TabelaProdutos></TabelaProdutos>
         </Card>
