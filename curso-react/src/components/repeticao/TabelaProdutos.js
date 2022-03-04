@@ -7,8 +7,9 @@ export default function TabelaProdutos(props) {
     return (
         //testa se é par, se for muda o className para Par
       <tr key={produto.id} className={i % 2 == 0 ? 'Par' : 'Impar'}>
+          {/* "==" compara o valor, já "===" compara o valor e o tipo (string, int...)  */}
         <td>{produto.id}</td>
-        <td>{produto.nome}</td>
+        <td>{produto.nome}</td> 
         {/* toFixed fixa o número de casas decimais depois da vírgula */}
         <td>R$ {produto.preco.replace(".", ",")}</td>
       </tr>
