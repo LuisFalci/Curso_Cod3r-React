@@ -1,12 +1,13 @@
 /* root permite que o css identifique variáveis */
 :root {
-    --bg-button: white;
+    --bg-button: #f0f0f0;
     --border-button: solid 1px #888;
 }
 
 /* passamos as variáveis do root como parâmetro de css */
+
 .button {
-    font-size: 1.4rem;
+    font-size: 1.4em;
     background-color: var(--bg-button);
     border: none;
     border-right: var(--border-button);
@@ -31,6 +32,6 @@
     color: #FFF;
 }
 
-.buttorn.operation:active{
+.button.operation:active {
     background-color: #fa8231cc;
 }
