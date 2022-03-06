@@ -1,0 +1,15 @@
+/* root permite que o css identifique variáveis */
+:root {
+    --bg-button: white;
+    --border-button: solid 1px #888;
+}
+
+/* passamos as variáveis do root como parâmetro de css */
+.button {
+    font-size: 1.4rem;
+    background-color: var(--bg-button);
+    border: none;
+    border-right: var(--border-button);
+    border-bottom: var(--border-button);
+    outline: none;
+}
