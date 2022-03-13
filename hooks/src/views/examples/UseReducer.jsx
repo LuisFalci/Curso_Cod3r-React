@@ -13,10 +13,19 @@ const initialState = {
 // a partir da ação, a função sabe o que fazer com o state (o switch faz a decisão)
 function reducer(state, action) {
   switch (action.type) {
-    case "number_add2":
+    case "numberAdd2":
       return { ...state, number: state.number + 2 };
     case "login":
       return { ...state, user: { name: action.payload } };
+    case "numberMult7":
+      return { ...state, number: state.number * 7 };
+    case "numberDiv25":
+      return { ...state, number: state.number / 25 };
+    case "numberParseInt":
+      return { ...state, number: parseInt(state.number) };
+    case "number_addn":
+      return { ...state, number: state.number + action.payload };
+
     default:
       return state;
   }
@@ -48,9 +57,34 @@ const UseReducer = (props) => {
 
           <button
             className="btn"
-            onClick={() => dispatch({ type: "number_add2" })}
+            onClick={() => dispatch({ type: "numberAdd2" })}
           >
             +2
+          </button>
+
+          <button
+            className="btn"
+            onClick={() => dispatch({ type: "numberMult7" })}
+          >
+            *7
+          </button>
+          <button
+            className="btn"
+            onClick={() => dispatch({ type: "numberDiv25" })}
+          >
+            /25
+          </button>
+          <button
+            className="btn"
+            onClick={() => dispatch({ type: "numberParseInt" })}
+          >
+            INT
+          </button>
+          <button
+            className="btn"
+            onClick={() => dispatch({ type: "number_addn" , payload: 10})}
+          >
+            +n
           </button>
         </div>
       </div>
