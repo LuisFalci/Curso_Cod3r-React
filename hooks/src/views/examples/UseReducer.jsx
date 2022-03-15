@@ -1,35 +1,39 @@
 import React, { useReducer } from "react";
 import PageTitle from "../../components/layout/PageTitle";
 
-const initialState = {
-  cart: [],
-  products: [],
-  user: [],
-  //campo que iremos trabalhar
-  number: 0,
-};
+import { initialState, reducer } from "../../store";
+import { numberAdd2, login } from "../../store/actions";
 
-// função reducer recebe 2 parâmetros: o estado atual (state) e uma action
-// a partir da ação, a função sabe o que fazer com o state (o switch faz a decisão)
-function reducer(state, action) {
-  switch (action.type) {
-    case "numberAdd2":
-      return { ...state, number: state.number + 2 };
-    case "login":
-      return { ...state, user: { name: action.payload } };
-    case "numberMult7":
-      return { ...state, number: state.number * 7 };
-    case "numberDiv25":
-      return { ...state, number: state.number / 25 };
-    case "numberParseInt":
-      return { ...state, number: parseInt(state.number) };
-    case "number_addn":
-      return { ...state, number: state.number + action.payload };
+// const initialState = {
+//   cart: [],
+//   products: [],
+//   user: [],
+//   //campo que iremos trabalhar
+//   number: 0,
+// };
 
-    default:
-      return state;
-  }
-}
+// // função reducer recebe 2 parâmetros: o estado atual (state) e uma action
+// // a partir da ação, a função sabe o que fazer com o state (o switch faz a decisão)
+// function reducer(state, action) {
+//   switch (action.type) {
+//     case "numberAdd2":
+//       return { ...state, number: state.number + 2 };
+//     case "login":
+//       return { ...state, user: { name: action.payload } };
+//     case "numberMult7":
+//       return { ...state, number: state.number * 7 };
+//     case "numberDiv25":
+//       return { ...state, number: state.number / 25 };
+//     case "numberParseInt":
+//       return { ...state, number: parseInt(state.number) };
+//     case "number_addn":
+//       return { ...state, number: state.number + action.payload };
+
+//     default:
+//       return state;
+//   }
+// }
+
 const UseReducer = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
@@ -48,23 +52,15 @@ const UseReducer = (props) => {
 
         <span className="text">{state.number}</span>
         <div>
-          <button
-            className="btn"
-            onClick={() => dispatch({ type: "login", payload: "Maria" })}
-          >
+          <button className="btn" onClick={() => login(dispatch, "João")}>
             Login
           </button>
-
-          <button
-            className="btn"
-            onClick={() => dispatch({ type: "numberAdd2" })}
-          >
+          <button className="btn" onClick={() => numberAdd2(dispatch)}>
             +2
           </button>
-
           <button
             className="btn"
-            onClick={() => dispatch({ type: "numberMult7" })}
+            onClick={() => dispatch({ type: "numberMulti7" })}
           >
             *7
           </button>
@@ -76,15 +72,21 @@ const UseReducer = (props) => {
           </button>
           <button
             className="btn"
-            onClick={() => dispatch({ type: "numberParseInt" })}
+            onClick={() => dispatch({ type: "numberInt" })}
           >
-            INT
+            Int
           </button>
           <button
             className="btn"
-            onClick={() => dispatch({ type: "number_addn" , payload: 10})}
+            onClick={() => dispatch({ type: "numberAddN", payload: -9 })}
           >
-            +n
+            -9
+          </button>
+          <button
+            className="btn"
+            onClick={() => dispatch({ type: "numberAddN", payload: 11 })}
+          >
+            +11
           </button>
         </div>
       </div>
