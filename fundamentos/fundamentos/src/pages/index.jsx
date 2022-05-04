@@ -1,11 +1,19 @@
-import Link from 'next/link'
+import Navegador from "../components/Navegador";
 
 export default function Inicio() {
   return (
-    <div>
-      <Link href="/estiloso">
-      Estiloso
-      </Link>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexWrap: "wrap",
+        height: "100vh",
+      }}
+    >
+      <Navegador texto="Estiloso" destino="/estiloso" />
+      <Navegador texto="Exemplo" destino="/exemplo" cor="#bbb" />
+      <Navegador texto="JSX" destino="/jsx" cor="red" />
     </div>
-  )
+  );
 }
