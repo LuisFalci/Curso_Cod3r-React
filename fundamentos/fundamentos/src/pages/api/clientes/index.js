@@ -2,7 +2,7 @@ export default function cliente(req, res){
 
     if(req.method === "GET"){
         handleGet(req, res)
-    }else{
+    }else{  
         res.status(405).send()
     }
 
