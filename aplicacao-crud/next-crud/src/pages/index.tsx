@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useState } from 'react'
 import Botao from '../components/Botao'
 import Formulario from '../components/Formulario'
 import Layout from '../components/Layout'
@@ -23,6 +24,13 @@ export default function Home() {
     console.log(cliente.nome)
   }
 
+  function salvarCliente(cliente: Cliente){
+    console.log(cliente)
+  }
+
+  //Só pode ser tabela ou formulário
+  const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
+
   return (
     <div className={
       `flex h-screen justify-center items-center
@@ -30,14 +38,26 @@ export default function Home() {
       text-white`
     }>
      <Layout titulo="Cadastro Simples">
-       <div className='flex justify-end'>
-       <Botao cor="blue" className="mb-4">Novo Cliente</Botao>
-       </div>
-       <Tabela clientes={clientes}
-       clienteSelecionado={clienteSelecionado}
-       clienteExcluido={clienteExcluido}></Tabela>
+        {visivel === 'tabela' ? (
+          <>
+            <div className='flex justify-end'>
+              <Botao cor="blue" className="mb-4"
+              onClick={() => setVisivel('form')}>
+                Novo Cliente
+              </Botao>
+            </div>
+            <Tabela clientes={clientes}
+              clienteSelecionado={clienteSelecionado}
+              clienteExcluido={clienteExcluido} />
+          </>
+        ) : (
+          <Formulario cliente={clientes[3]}
+          clienteMudou={salvarCliente}
+          cancelado={() => setVisivel('tabela')}
+           />
+        )}
 
-       <Formulario cliente={clientes[3]}></Formulario>
+       
      </Layout>
     </div>
   )
