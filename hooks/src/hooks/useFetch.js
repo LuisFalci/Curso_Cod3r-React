@@ -14,7 +14,6 @@ export const useFetch = (url, method = 'get') => {
                 loading: false
             }))
     }, [url, method])
-
-    
+   
     return response
 }
