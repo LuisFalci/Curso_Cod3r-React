@@ -15,5 +15,6 @@ export const useFetch = (url, method = 'get') => {
             }))
     }, [url, method])
 
+    
     return response
 }
